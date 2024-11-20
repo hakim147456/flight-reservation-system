@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Flights</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Ensure full height for body and use Flexbox */
+        html, body {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Video Background */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Places the video behind the content */
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.6); /* Dark overlay to improve text visibility */
+            color: #fff;
+            padding: 1rem 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #333;
+            color: #fff;
+            width: 100%;
+        }
+
+        /* Form Section Styling */
+        .search-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        /* Form Group */
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        /* Labels for Form Fields */
+        label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+            font-size: 14px;
+        }
+
+        /* Styling the Select Fields (From, To) */
+        select, input[type="date"], input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* Focus Effect */
+        select:focus, input[type="date"]:focus, input[type="number"]:focus {
+            border-color: #0056b3;
+            outline: none;
+        }
+
+        /* Styling the Submit Button */
+        button {
+            background-color: #0056b3;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            width: 100%;
+            max-width: 250px; /* Keeps it from stretching too much */
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #004494;
+            transform: translateY(-2px); /* Creates a subtle lift effect */
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        @media (max-width: 600px) {
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background -->
+    <video class="video-background" autoplay muted loop>
+        <source src="searchflight.webm" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <header>
+        <div class="container">
+            <h1>A/H Flight Reservation</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="search.html">Search Flights</a></li>
+                    <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="flex: 1;"> <!-- This makes the main content flexible and pushes footer down -->
+        <section class="search-section">
+            <h1>Search Flights</h1>
+
+            <form action="search.php" method="get">
+                <!-- From Field - Fixed to Kuala Lumpur -->
+                <div class="form-group">
+                    <label for="from">From:</label>
+                    <select id="from" name="from" required>
+                        <option value="Kuala Lumpur" selected>Kuala Lumpur</option>
+                    </select>
+                </div>
+
+                <!-- To Field - Destination Cities -->
+                <div class="form-group">
+                    <label for="to">To:</label>
+                    <select id="to" name="to" required>
+                        <option value="Tokyo">Tokyo</option>
+                        <option value="London">London</option>
+                        <option value="Paris">Paris</option>
+                        <option value="Sydney">Sydney</option>
+                        <option value="Dubai">Dubai</option>
+                        <option value="Singapore">Singapore</option>
+                        <option value="New York">New York</option>
+                    </select>
+                </div>
+
+                <!-- Departure Date Field -->
+                <div class="form-group">
+                    <label for="departure-date">Departure Date:</label>
+                    <input type="date" id="departure-date" name="departure-date" required>
+                </div>
+
+                <!-- Passengers Field -->
+                <div class="form-group">
+                    <label for="passengers">Number of Passengers:</label>
+                    <input type="number" id="passengers" name="passengers" min="1" value="1" required>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit">Search Flights</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Flight Reservation System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

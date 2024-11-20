@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About Us - A/H Airline Corporate</title>
+    
+    <!-- Font Awesome CDN for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        /* Fullscreen background video */
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;  /* Ensures the video covers the entire area */
+            object-position: center; /* Focuses the video on the center */
+            z-index: -1;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #000; /* Black text */
+            line-height: 1.6;
+        }
+
+        header nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+            margin: 0;
+        }
+
+        header nav ul li {
+            margin: 10px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        header nav ul li a:hover {
+            background-color: #444;
+        }
+
+        /* Add a background color with transparency behind the text */
+        .about-us, .contact-us {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7); /* Light background with transparency */
+            border-radius: 10px; /* Optional: Adds rounded corners */
+            z-index: 1; /* Ensures content appears above the video */
+        }
+
+        h1, h2 {
+            margin: 20px 0;
+        }
+
+        /* Style for icons */
+        .nav-icons, .contact-icons {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .contact-us a {
+            color: #000; /* Black color for the links */
+            text-decoration: none;
+        }
+
+        .contact-us a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Add padding to sections */
+        .about-us, .contact-us {
+            padding: 60px 20px;
+        }
+
+        /* Responsive text sizing */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 24px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+            header nav ul li a {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Video -->
+    <video class="background-video" autoplay muted loop>
+        <source src="about.MP4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home nav-icons"></i> Home</a></li>
+                <li><a href="search.html"><i class="fas fa-search nav-icons"></i> Book a Flight</a></li>
+                <li><a href="about-us.html"><i class="fas fa-info-circle nav-icons"></i> About Us</a></li>
+           
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about-us">
+        <h1>About A/H Airline Corporate</h1>
+
+        <!-- Summary Section -->
+        <p><strong>Summary:</strong> A/H Airline Corporate, founded in 2024, is dedicated to offering exceptional flight booking services with a focus on connecting travelers . Our airline combines modern technology, reliable service, and a commitment to passenger comfort to make every journey seamless. Whether you're flying for business or leisure, A/H Airline Corporate ensures an unforgettable travel experience with competitive pricing and premium options.</p>
+        
+        <p>Welcome to A/H Airline Corporate, your trusted partner in flight bookings. Established in 2024, our airline strives to provide exceptional services and seamless travel experiences for all passengers. We focus on delivering top-notch customer satisfaction and reliability, offering both domestic and international flights, with a particular emphasis on connecting you to another country</p>
+        
+        <p>At A/H Airline Corporate, we understand the importance of comfort, convenience, and safety during travel. Our fleet is equipped with the latest technology, ensuring a smooth journey from start to finish. Whether you’re traveling for business or leisure, we are committed to providing the best service at competitive prices.</p>
+
+        <h2>Our Vision</h2>
+        <p>Our vision is to become the leading airline for travelers, offering affordable and efficient flight options while ensuring the highest level of safety and customer care. We aim to create a memorable journey for every passenger that boards our planes.</p>
+
+        <h2>Our Services</h2>
+        <ul>
+            <li>Easy online flight booking</li>
+            <li>Affordable prices with premium service options</li>
+            <li>Comfortable and modern fleet</li>
+            <li>Dedicated customer support team</li>
+            <li>Travel insurance and additional services available</li>
+        </ul>
+
+        <h2>Why Choose A/H Airline Corporate?</h2>
+        <p>With our commitment to excellence, we are the ideal choice for anyone planning a trip from Malaysia. We offer flexible flight schedules, excellent in-flight services, and a user-friendly booking system to ensure your travel experience is as smooth as possible. Choose A/H Airline Corporate for your next flight from Malaysia and beyond!</p>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section class="contact-us">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need assistance, feel free to reach out to us:</p>
+        <p><strong><i class="fas fa-phone-alt contact-icons"></i>Phone:</strong> 011-27381297</p>
+        <p><strong><i class="fas fa-envelope contact-icons"></i>Email:</strong> <a href="mailto:AHbookingairline@gmail.com">AHbookingairline@gmail.com</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 A/H Airline Corporate. All rights reserved.</p>
+    </footer>
+</body>
+</html>

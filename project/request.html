@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Reservation Request</title>
+    <style>
+        /* Background Image */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('free.png'); /* Add your image path here */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.9); /* White with transparency */
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        input[type="text"], select, input[type="date"], button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        /* Submit Button Styling (Blue) */
+        button.submit-btn {
+            background-color: #007BFF; /* Blue color */
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+
+        button.submit-btn:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Back Button Styling (Red) */
+        .back-btn {
+            background-color: #EE0E12; /* Red color */
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 12px;
+            margin-top: 10px;
+            display: block;
+            width: 100%;
+            text-align: center;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background-color: #b31a13; /* Darker red on hover */
+        }
+
+        #otherRequestDiv {
+            display: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Flight Reservation Request</h2>
+        <form action="submit_request.php" method="POST">
+            <!-- IC No Input -->
+            <label for="icNo">IC No:</label>
+            <input type="text" name="icNo" placeholder="IC No" required>
+
+            <!-- Request Type Selection -->
+            <label for="requestType">Request Type:</label>
+            <select id="requestType" name="requestType">
+                <option value="cancel">Cancel Departure</option>
+                <option value="change">Change Departure Date</option>
+                <option value="other">Other</option>
+            </select>
+
+            <!-- Original Departure Date Input (Only for 'Change' request) -->
+            <div id="originalDateDiv" style="display: none;">
+                <label for="originalDepartureDate">Original Departure Date:</label>
+                <input type="date" id="originalDepartureDate" name="originalDepartureDate">
+            </div>
+
+            <!-- New Departure Date Input (Only for 'Change' request) -->
+            <div id="changeDateDiv" style="display: none;">
+                <label for="newDepartureDate">New Departure Date:</label>
+                <input type="date" id="newDepartureDate" name="newDepartureDate">
+            </div>
+
+            <!-- Other Request Input -->
+            <div id="otherRequestDiv">
+                <label for="otherRequest">Please specify your request:</label>
+                <input type="text" id="otherRequest" name="otherRequest">
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Submit Request</button>
+        </form>
+
+        <!-- Back Button -->
+        <a href="index.html" class="back-btn">Back to Home</a>
+    </div>
+
+    <script>
+        // Get elements
+        const requestTypeSelect = document.getElementById('requestType');
+        const originalDateDiv = document.getElementById('originalDateDiv');
+        const changeDateDiv = document.getElementById('changeDateDiv');
+        const otherRequestDiv = document.getElementById('otherRequestDiv');
+
+        // Show or hide the date inputs and other request input based on the request type
+        requestTypeSelect.addEventListener('change', function() {
+            if (this.value === 'change') {
+                originalDateDiv.style.display = 'block';
+                changeDateDiv.style.display = 'block';
+                otherRequestDiv.style.display = 'none';
+            } else if (this.value === 'other') {
+                originalDateDiv.style.display = 'none';
+                changeDateDiv.style.display = 'none';
+                otherRequestDiv.style.display = 'block';
+            } else {
+                originalDateDiv.style.display = 'none';
+                changeDateDiv.style.display = 'none';
+                otherRequestDiv.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>
